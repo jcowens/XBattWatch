@@ -30,7 +30,7 @@ Download the latest pre-built executable from [Releases](https://github.com/jcow
 
 2. **Install Dependencies**
 
-   On a MinGW system, you can install the toolchain with:
+   If you’re using MSYS2, install the MinGW-w64 toolchain with:
 
    ```bash
    pacman -S mingw-w64-x86_64-toolchain mingw-w64-x86_64-gcc
@@ -49,6 +49,8 @@ Download the latest pre-built executable from [Releases](https://github.com/jcow
    ```bash
    g++ -o XBattWatch src/main.cpp resources.res -DUNICODE -D_UNICODE -lXinput -mwindows
    ```
+
+   After the build completes, you should have the XBattWatch.exe executable in your project directory. You can run it, and it will appear in the system tray.
 
 ## Usage
 
