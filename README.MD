@@ -17,16 +17,18 @@ Windows system tray utility for monitoring Xbox controller battery levels
 
 ## Installation
 
-Clone the repository and change to the project directory:
-
-```bash
-git clone https://github.com/jcowens/XBattWatch
-cd XBattWatch
-```
+Download the latest pre-built executable from [Releases](https://github.com/jcowens/XBattWatch/releases).
 
 ## Building from Source
 
-1. **Install Dependencies**
+1. **Clone Repository**
+
+   ```bash
+   git clone https://github.com/jcowens/XBattWatch
+   cd XBattWatch
+   ```
+
+2. **Install Dependencies**
 
    On a MinGW system, you can install the toolchain with:
 
@@ -34,7 +36,7 @@ cd XBattWatch
    pacman -S mingw-w64-x86_64-toolchain mingw-w64-x86_64-gcc
    ```
 
-2. **Build Resources and Executable**
+3. **Build Resources and Executable**
 
    First, compile the resources with `windres`:
 
