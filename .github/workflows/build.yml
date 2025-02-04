@@ -1,0 +1,32 @@
+name: Build and Release XBattWatch
+
+on:
+  push:
+    tags:
+      - "v*" # Trigger on version tags
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up MinGW
+        run: |
+          Invoke-WebRequest -Uri "https://github.com/brechtsanders/winlibs_mingw/releases/download/13.2.0-16.0.6-11.0.1-msvcrt-r5/winlibs-x86_64-posix-seh-gcc-13.2.0-llvm-16.0.6-mingw-w64msvcrt-11.0.1-r5.zip" -OutFile mingw.zip
+          Expand-Archive -Path mingw.zip -DestinationPath $env:GITHUB_WORKSPACE/mingw
+          Add-Content $env:GITHUB_ENV "PATH=$env:GITHUB_WORKSPACE/mingw\bin;$env:PATH"
+
+      - name: Build resources
+        run: windres resources/resources.rc -O coff -o resources.res
+
+      - name: Build executable
+        run: g++ -o XBattWatch src/main.cpp resources.res -DUNICODE -D_UNICODE -lXinput -mwindows -s
+
+      - name: Upload to GitHub Releases
+        uses: softprops/action-gh-release@v1
+        with:
+          files: XBattWatch.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

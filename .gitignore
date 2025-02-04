@@ -1,0 +1,19 @@
+# Visual Studio
+x64/
+.vs/
+*.vcxproj.user
+*.vcxproj
+*.sln
+*.filters
+*.log
+*.tlog
+
+# Build artifacts
+*.obj
+*.pdb
+*.idb
+*.exe
+*.ilk
+*.dll
+*.res
+*.aps

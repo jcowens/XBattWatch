@@ -1,0 +1,6 @@
+﻿#include "../include/resource.h"
+
+IDI_BATTERY_FULL   ICON "full.ico"
+IDI_BATTERY_MEDIUM ICON "medium.ico"
+IDI_BATTERY_LOW    ICON "low.ico"
+IDI_BATTERY_EMPTY  ICON "empty.ico"
